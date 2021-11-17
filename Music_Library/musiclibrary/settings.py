@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'music'
+    'music',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'musiclibrary.urls'
@@ -77,8 +79,7 @@ WSGI_APPLICATION = 'musiclibrary.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.my',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
     }
 }
 
@@ -130,3 +131,5 @@ try:
     from musiclibrary.local_settings import *
 except ImportError:
     pass
+
+CORS_ORIGIN_ALLOW_ALL = True
